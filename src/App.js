@@ -1,9 +1,9 @@
 import uuid from "react-uuid";
 import { useQuery } from "react-query";
-import { SimpleGrid, Title, Center, Image } from "@mantine/core";
+import { SimpleGrid, Center, Image, Space } from "@mantine/core";
 
-import "./App.css";
-import Brewery from "./components/Brewery";
+import "./App.scss";
+import BreweryListItem from "./components/BreweryListItem";
 import API from "./util";
 
 function App() {
@@ -27,28 +27,20 @@ function App() {
   }
 
   const breweries = data.data;
+  console.log("🚀 ~ App ~ breweries", breweries);
 
   return (
     <main className="App">
-      <Image
-        src={"logo.png"}
-        alt={"logo"}
-        height={180}
-        mb={50}
-        fit="contain"
-        // style={{ margin: "auto" }}
-      />
-      {/* <Title style={{ marginTop: 50, marginBottom: 60, fontSize: 50 }}>
-        🍺 Nashville Breweries 🍺
-      </Title> */}
+      <Image src={"logo.png"} alt={"logo"} height={250} fit="contain" />
       <SimpleGrid
         cols={2}
-        breakpoints={[{ maxWidth: "md", cols: 1, spacing: "sm" }]}
+        breakpoints={[{ maxWidth: 1160, cols: 1, spacing: "sm" }]}
       >
         {breweries.map((e) => (
-          <Brewery key={uuid()} id={e.id} name={e.name} />
+          <BreweryListItem key={uuid()} id={e.id} details={e} />
         ))}
       </SimpleGrid>
+      <Space h={100} />
     </main>
   );
 }

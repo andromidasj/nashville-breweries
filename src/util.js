@@ -6,6 +6,9 @@ const API = {
       "https://api.openbrewerydb.org/breweries?by_city=nashville"
     );
   },
+  brewery: (id) => {
+    return axios.get(`https://api.openbrewerydb.org/breweries/${id}`);
+  },
 };
 
 export default API;
