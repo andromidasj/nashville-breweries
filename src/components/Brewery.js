@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  Badge,
-  Card,
-  Center,
-  Group,
-  Image,
-  Stack,
-  Anchor,
-  Text,
-  Modal,
-  Title,
-} from "@mantine/core";
-import { Link, useNavigate } from "react-router-dom";
+import { Badge, Card, Group, Stack, Anchor, Text, Title } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ExternalLink } from "tabler-icons-react";
 
 const typeColors = {
   micro: "blue",
@@ -20,13 +10,6 @@ const typeColors = {
   brewpub: "teal",
   planning: "dark",
   contract: "orange",
-};
-
-const cardStyle = {
-  maxWidth: 800,
-  margin: "auto",
-  marginTop: 10,
-  cursor: "pointer",
 };
 
 const cardHover = () => ({
@@ -38,7 +21,6 @@ const cardHover = () => ({
 function Brewery(props) {
   const [details, setDetails] = useState({});
   const navigate = useNavigate();
-  // const [opened, setOpened] = useState(false);
 
   useEffect(() => {
     axios
@@ -47,11 +29,11 @@ function Brewery(props) {
         // console.log(res.data);
         setDetails(res.data);
       });
-  }, []);
+  }, [props.id]);
 
   const handleClick = (e) => {
     if (e.target.target !== "_blank") {
-      navigate(`/${details.id}`);
+      navigate(details.id);
     }
   };
 
@@ -62,11 +44,11 @@ function Brewery(props) {
 
   return (
     <Card
-      style={cardStyle}
+      style={{
+        cursor: "pointer",
+      }}
       sx={cardHover}
       radius="lg"
-      // component={Link}
-      // to={`/${details.id}`}
       onClick={handleClick}
     >
       <Stack align="flex-start" spacing="sm">
@@ -78,7 +60,10 @@ function Brewery(props) {
         </Group>
         <Text>{address}</Text>
         <Anchor href={details.website_url} target="_blank" rel="noreferrer">
-          {url}
+          <Group spacing={5}>
+            {url}
+            <ExternalLink size={16} />
+          </Group>
         </Anchor>
       </Stack>
     </Card>
