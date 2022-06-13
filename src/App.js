@@ -27,7 +27,6 @@ function App() {
   }
 
   const breweries = data.data;
-  console.log("🚀 ~ App ~ breweries", breweries);
 
   return (
     <main className="App">

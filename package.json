@@ -19,11 +19,12 @@
     "react-scripts": "5.0.1",
     "react-uuid": "^1.0.2",
     "sass": "^1.52.3",
+    "serve": "^13.0.2",
     "tabler-icons-react": "^1.48.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
