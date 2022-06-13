@@ -1,7 +1,8 @@
-import { Button, Container, Space } from "@mantine/core";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button, Container, Space } from "@mantine/core";
 import { ArrowLeft } from "tabler-icons-react";
+
 import DetailsInfo from "./DetailsInfo";
 import Map from "./Map";
 
@@ -23,8 +24,6 @@ function BreweryDetails() {
             variant="subtle"
             leftIcon={<ArrowLeft />}
             size="xl"
-            // color="dark"
-            // radius="xl"
             compact
             onClick={() => {
               navigate(-1);

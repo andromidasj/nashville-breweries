@@ -12,7 +12,8 @@ function App() {
   if (isLoading) {
     return (
       <Center>
-        <h1>Brewing list...</h1>
+        <Space h={200} />
+        <h1>🍺 Brewing list...</h1>
       </Center>
     );
   }

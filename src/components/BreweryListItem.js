@@ -51,27 +51,6 @@ function Brewery({ details }) {
           >
             Details
           </Button>
-          {/* <Transition
-            mounted={hovered}
-            transition="fade"
-            duration={400}
-            timingFunction="ease"
-          >
-            {(styles) => (
-              <div style={styles}>
-                <Button
-                  // style={styles}
-                  compact
-                  variant="subtle"
-                  rightIcon={<ArrowRight />}
-                  component={Link}
-                  to={details.id}
-                >
-                  Details
-                </Button>
-              </div>
-            )}
-          </Transition> */}
         </Group>
       </Stack>
     </Card>

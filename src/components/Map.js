@@ -1,7 +1,7 @@
 import React from "react";
-import { MapOff } from "tabler-icons-react";
+import { Title, Group, Space, Text, Button, Stack } from "@mantine/core";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Title, Group, Space, Text } from "@mantine/core";
+import { MapOff, MapPin } from "tabler-icons-react";
 
 function Map({ details, address }) {
   const coordinates = [details.latitude, details.longitude];
@@ -30,13 +30,41 @@ function Map({ details, address }) {
         </div>
       ) : (
         <>
-          <Space h={200} />
-          <Title align="center" order={4}>
+          <Space h={100} />
+          <Stack align="center">
             <Group position="center" spacing="xs">
               <MapOff />
-              <Text>No map available :(</Text>
+              <Title align="center" order={2}>
+                No map available :(
+              </Title>
             </Group>
-          </Title>
+
+            <Text weight={400}>
+              The OpenBreweryDB doesn't have any coordinates for this location.
+            </Text>
+
+            {details.street && (
+              <>
+                <Text weight={400}>
+                  Try opening{" "}
+                  <Text weight={600} component="span">
+                    {address}
+                  </Text>
+                  with Google Maps instead?
+                </Text>
+
+                <Button
+                  rightIcon={<MapPin size={18} />}
+                  component="a"
+                  href={`https://www.google.com/maps/place/${address}`}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Open in Google Maps
+                </Button>
+              </>
+            )}
+          </Stack>
         </>
       )}
     </>
