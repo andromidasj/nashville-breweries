@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Badge, Card, Group, Stack, Text, Title, Button } from "@mantine/core";
 import { ArrowRight, ExternalLink } from "tabler-icons-react";
 
-const typeColors = {
+export const typeColors = {
   micro: "blue",
   nano: "yellow",
   brewpub: "teal",
@@ -20,7 +20,7 @@ function Brewery({ details }) {
     .replace("www.", "");
 
   return (
-    <Card radius="lg">
+    <Card radius="md">
       <Stack align="flex-start" spacing="sm">
         <Group position="apart" style={{ width: "100%" }}>
           <Title order={2}>{details.name}</Title>
@@ -47,6 +47,7 @@ function Brewery({ details }) {
             component={Link}
             to={details.id}
             state={{ details }}
+            radius="md"
           >
             Details
           </Button>

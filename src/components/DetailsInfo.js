@@ -1,6 +1,16 @@
 import React from "react";
-import { Group, Avatar, Stack, Title, Text, Anchor } from "@mantine/core";
+import {
+  Group,
+  Avatar,
+  Stack,
+  Title,
+  Text,
+  Anchor,
+  Badge,
+} from "@mantine/core";
 import { BrandSafari, ExternalLink, MapPin, Phone } from "tabler-icons-react";
+
+import { typeColors } from "./BreweryListItem";
 
 function DetailsInfo({ details, address }) {
   const url = details.website_url?.split("http://")[1].split("www.").slice(-1);
@@ -15,25 +25,28 @@ function DetailsInfo({ details, address }) {
     details.phone?.slice(6);
 
   return (
-    <Group position="center">
+    <Group>
       <Avatar size={165} color="blue">
         {initials}
       </Avatar>
-      <Stack spacing="xs">
-        <Title>{details.name}</Title>
 
+      <Stack spacing="xs">
+        <Group>
+          <Title color="light">{details.name}</Title>{" "}
+          <Badge color={typeColors[details.brewery_type]} size="lg">
+            {details.brewery_type}
+          </Badge>
+        </Group>
         <Group spacing="xs">
           <MapPin strokeWidth={1.5} />
           <Text order={3}>{address}</Text>
         </Group>
-
         {details.phone && (
           <Group spacing="xs">
             <Phone strokeWidth={1.5} />
             <Text order={3}>{phone}</Text>
           </Group>
         )}
-
         <Group spacing="xs">
           <BrandSafari strokeWidth={1.5} />
           <Anchor href={details.website_url} target="_blank" color="dark">

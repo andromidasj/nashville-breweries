@@ -32,10 +32,7 @@ function App() {
   return (
     <main className="App">
       <Image src={"logo.png"} alt={"logo"} height={250} fit="contain" />
-      <SimpleGrid
-        cols={2}
-        breakpoints={[{ maxWidth: 1160, cols: 1, spacing: "sm" }]}
-      >
+      <SimpleGrid cols={2} breakpoints={[{ maxWidth: 1160, cols: 1 }]}>
         {breweries.map((e) => (
           <BreweryListItem key={uuid()} id={e.id} details={e} />
         ))}
