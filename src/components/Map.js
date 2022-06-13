@@ -16,7 +16,7 @@ function Map({ details, address }) {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={coordinates}>
-              <Popup>
+              <Popup closeButton={false}>
                 <a
                   href={`https://www.google.com/maps/place/${coordinates[0]},${coordinates[1]}`}
                   target="_blank"
