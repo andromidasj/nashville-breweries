@@ -1,10 +1,10 @@
 # Nashville Breweries
 
-## About
+## 💬 About
 
 This is my take-home coding challenge submission for a recent job application. I was tasked to connect to the OpenBreweryDB API and retrieve and present data according to some given specifications.
 
-## Tech
+## 💻 Tech
 
 Some of the technologies I used:
 
@@ -15,6 +15,6 @@ Some of the technologies I used:
 - SASS
 - Leaflet (map API)
 
-## Deployment
+## 🚀 Deployment
 
 This is deployed with Heroku at: https://nashville-breweries.herokuapp.com/
