@@ -16,7 +16,3 @@ Some of the technologies I used:
 - Mantine UI
 - SASS
 - Leaflet (map API)
-
-## 🚀 Deployment
-
-This is deployed with Heroku at: https://nashville-breweries.herokuapp.com/
